@@ -109,7 +109,7 @@ main{
     border-radius: 0.9375rem;
     padding: 1.5rem;
 }
-.resultados div{
+.resultados div div{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -145,6 +145,18 @@ main{
 }
 
 @media(min-width: 920px){
+    body{
+        display: flex;
+        flex-direction: column;
+        min-height: 100svh;
+        justify-content: center;
+        gap: 5rem;
+    }
+
+    header{
+        padding: 0;
+    }
+
     main{
         display: flex;
         gap: 3rem;
@@ -157,7 +169,26 @@ main{
     main section {
         width: 100%;
     }
+
+    .conta input::-webkit-inner-spin-button,
+    .pessoa input::-webkit-inner-spin-button {
+    display: none;
+}
+
     .gorjeta div{
         grid-template-columns: 1fr 1fr 1fr;
     }
+
+    .resultados{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        padding: 2.5rem;
+    }
+
+    .resultados div> strong {
+        font-size: 3rem;
+    }
+
 }
