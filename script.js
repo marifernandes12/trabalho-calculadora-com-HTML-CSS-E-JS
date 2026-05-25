@@ -12,8 +12,8 @@ function receberValorConta(evento) {
 const pessoasInput = document.querySelector("#pessoas")
 pessoasInput.addEventListener("input", receberQuantidadePessoas)
 
-function receberQuantidadePessoas(evento) {
-    const paragrafoErro = document.querySelector(".pessoas #erro")
+    function receberQuantidadePessoas(evento){
+        const paragrafoErro = document.querySelector(".pessoas #erro")
     const divErro = document.querySelector(".pessoas .input-box")
 
     if(evento.target.value === "0") {
@@ -24,18 +24,32 @@ function receberQuantidadePessoas(evento) {
         divErro.setAttribute("id", "")
         pessoas = Number(evento.target.value)
     }
+    }
+    
+
+
     const botoesGorjeta = document.querySelectorAll(".gorjeta input[type=button]")
 
 botoesGorjeta.forEach(botao => {
     botao.addEventListener("click", receberPorcentagem)
 })
 
-function receberPorcentagem(evento) {
+const botoesGorjeta = document.querySelectorAll(".gorjeta input[type='button']")
 
-    console.log(evento.target.value)
+botoesGorjeta.forEach(botao => {
+    botao.addEventListener("click", receberPorcentagemBotao)
+})
 
-     porcentagem = Number(evento.target.value) / 100
+function receberPorcentagemBotao(evento) {
 
-     console.log(porcentagem)
+    botoesGorjeta.forEach(botao => {
+        botao.classList.remove("botao-ativo")
+
+        if(botao.value === evento.target.value) {
+            botao.classList.add("botao-ativo")
+        }
+    })
+
+    porcentagem = parseFloat(evento.target.value) / 100
 }
-}
+
